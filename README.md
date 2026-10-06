@@ -4,6 +4,10 @@ GitHub Home is a Chrome extension that replaces the GitHub home page with a list
 
 I open github.com to get to one of my repos, and the home page shows me a feed instead. With GitHub Home, I land on my repos, type a few letters and press Enter.
 
+Read the announcement and watch the 30-second demo on my blog: [I built GitHub Home, a Chrome extension that puts my repos on the GitHub home page](https://flaviocopes.com/github-home/).
+
+[![Watch the 30-second GitHub Home demo](docs/showreel-poster.jpg)](https://flaviocopes.com/github-home/)
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dark.png" />
   <img src="docs/screenshot-light.png" alt="The GitHub home page with GitHub Home: three short lists of repos, most used, recently created and getting traction" />
