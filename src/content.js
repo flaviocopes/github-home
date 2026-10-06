@@ -5,9 +5,7 @@ const VISIT_GAP = 30 * 60 * 1000
 const MAX_VISITS_PER_REPO = 50
 const FORGET_VISITS_AFTER = 180 * DAY
 const LEAVE_TIMEOUT = 1500
-const MOST_USED_COUNT = 10
-const RECENT_COUNT = 8
-const TRACTION_COUNT = 8
+const LIST_SIZE = 10
 const SEARCH_LIMIT = 30
 
 const RESERVED_OWNERS = new Set([
@@ -234,18 +232,18 @@ function homeView(now) {
   const stars = data.cache.stars ?? {}
   const mostUsed = scoreRepos(now)
     .filter((entry) => !entry.repo.archived && entry.score > 0.5)
-    .slice(0, MOST_USED_COUNT)
+    .slice(0, LIST_SIZE)
     .map((entry) => entry.repo)
   const recent = repos
     .filter((repo) => !repo.fork && sameLogin(repo.owner, login))
     .sort((a, b) => b.createdAt - a.createdAt)
-    .slice(0, RECENT_COUNT)
+    .slice(0, LIST_SIZE)
   const traction = repos
     .filter((repo) => !repo.private && !repo.fork && (repo.org || sameLogin(repo.owner, login)))
     .map((repo) => ({ repo, stars: stars[repo.nwo.toLowerCase()] ?? 0 }))
     .filter((entry) => entry.stars > 0)
     .sort((a, b) => b.stars - a.stars)
-    .slice(0, TRACTION_COUNT)
+    .slice(0, LIST_SIZE)
 
   return h(
     'div',

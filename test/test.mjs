@@ -31,7 +31,7 @@ try {
 
   assert.deepEqual(await page.locator('#github-home .gh-home-section-title').allTextContents(), ['Most used', 'Recently created', 'Getting traction'])
   const [mostUsed, recent, traction] = await Promise.all([1, 2, 3].map((n) => names(page, `.gh-home-columns .gh-home-section:nth-child(${n})`)))
-  assert.equal(mostUsed.length, 10)
+  assert.deepEqual([mostUsed.length, recent.length, traction.length], [10, 10, 10], 'every list has the same number of repos')
   assert.ok(mostUsed.indexOf('blueprint') < mostUsed.indexOf('fstack') || !mostUsed.includes('fstack'), 'recent work beats old commits')
   assert.ok(mostUsed.slice(0, 4).includes('releases'), 'commits, pushes and visits put releases near the top')
   assert.equal(recent[0], 'testvm', 'the newest repo comes first')
