@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>GitHub Home settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>GitHub Home</h1>
+      <p>
+        The extension reads your repositories and your commit activity with a GitHub token. The token stays
+        in this browser and is only sent to <code>api.github.com</code>.
+      </p>
+
+      <form id="token-form">
+        <label for="token">GitHub token</label>
+        <div class="row">
+          <input id="token" type="password" autocomplete="off" spellcheck="false" placeholder="ghp_…" />
+          <button type="submit">Save</button>
+        </div>
+        <p id="token-status" class="status" role="status"></p>
+      </form>
+
+      <h2>Getting a token</h2>
+      <p>
+        <a href="https://github.com/settings/tokens/new?scopes=repo&amp;description=GitHub%20Home%20extension" target="_blank">Create a classic token</a>
+        with the <code>repo</code> scope. It sees all your repositories, including private ones and the ones in
+        your organizations.
+      </p>
+      <p>
+        If you use the GitHub CLI, you can also run <code>gh auth token | pbcopy</code> and paste the result here.
+      </p>
+
+      <h2>Visit history</h2>
+      <p>
+        To find the repos you use the most, the extension counts how often you open each one in this browser.
+        <span id="visit-count"></span>
+      </p>
+      <button id="clear-visits" type="button" class="secondary">Clear visit history</button>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

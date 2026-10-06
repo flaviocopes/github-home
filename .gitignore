@@ -1,0 +1,6 @@
+.DS_Store
+dist/
+node_modules/
+preview/
+.cursor/hooks/state/
+/github-home-showreel.mp4

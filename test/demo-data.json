@@ -1,0 +1,1055 @@
+{
+  "capturedAt": "2026-10-06T08:07:55Z",
+  "viewer": {
+    "id": "U_demo",
+    "login": "flaviocopes"
+  },
+  "repos": [
+    {
+      "nameWithOwner": "flaviocopes/importer-for-blackmagic-cam",
+      "name": "importer-for-blackmagic-cam",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Copy the videos you record with Blackmagic Camera on your iPhone to your Mac over USB, checked byte for byte",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-06T08:01:58Z",
+      "createdAt": "2026-10-06T07:11:49Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/vm-monitor",
+      "name": "vm-monitor",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "A Mac app that shows what your coding agents do in a macOS test VM: the live screen, who's using it, and every command",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-06T07:40:59Z",
+      "createdAt": "2026-10-03T18:07:46Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/testvm",
+      "name": "testvm",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Run Mac app builds in a headless macOS VM, so coding agents can open, screenshot and click through them without taking over your screen",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-06T07:39:34Z",
+      "createdAt": "2026-10-06T07:39:27Z",
+      "primaryLanguage": {
+        "name": "Shell",
+        "color": "#89e051"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/releases",
+      "name": "releases",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "A Mac app that tracks the versions and GitHub releases of the apps you make, and helps you ship the next one",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T19:33:04Z",
+      "createdAt": "2026-10-01T15:10:16Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/vimeo-cli",
+      "name": "vimeo-cli",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Upload videos to Vimeo from your terminal, apply your player preset and get the share link",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T17:59:11Z",
+      "createdAt": "2026-10-05T13:25:12Z",
+      "primaryLanguage": {
+        "name": "Rust",
+        "color": "#dea584"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/blips",
+      "name": "blips",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "8-bit sound effects for your apps, made with jsfxr: a Mac app and a CLI with about 6,000 sounds, each one clearly different",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T13:24:52Z",
+      "createdAt": "2026-10-05T10:35:03Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/cli-tools",
+      "name": "cli-tools",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "One catalog for every CLI tool on your Mac: native app plus a JSON-friendly CLI for AI agents",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T13:22:18Z",
+      "createdAt": "2026-09-09T09:19:28Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/snake",
+      "name": "snake",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "The classic snake game from old mobile phones, rebuilt for the Apple TV",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T12:47:21Z",
+      "createdAt": "2026-10-05T10:19:39Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/factorylog",
+      "name": "factorylog",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "See what your coding agents did for you: a timeline of each day and week on your Mac, and where your time went, project by project",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T11:37:48Z",
+      "createdAt": "2026-10-01T16:28:49Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/tabmerger",
+      "name": "tabmerger",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "A Chrome extension that moves the tabs of every window into the one you're using, with one click or a shortcut",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T11:37:42Z",
+      "createdAt": "2026-10-01T16:27:04Z",
+      "primaryLanguage": {
+        "name": "HTML",
+        "color": "#e34c26"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/notion-presenter-view",
+      "name": "notion-presenter-view",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "A Chrome extension that shows the next slide of a Notion presentation in a floating window on top of the fullscreen slides",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T11:37:40Z",
+      "createdAt": "2026-10-04T17:39:08Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/soundscape",
+      "name": "soundscape",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Mix the Background Sounds built into your Mac, from a window or the menu bar",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T11:37:36Z",
+      "createdAt": "2026-09-30T08:29:25Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/skillscout",
+      "name": "skillscout",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Find the skills your coding agents load, see which agents can use each one, and count how often you use them",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T11:37:31Z",
+      "createdAt": "2026-09-30T13:27:04Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/postdeck",
+      "name": "postdeck",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Turn posts on X into slides you talk over while you record a video. A Mac app and a Chrome extension.",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T11:37:25Z",
+      "createdAt": "2026-10-03T18:10:50Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/noterepo",
+      "name": "noterepo",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "A quiet, local-first daily notes app for macOS",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T11:37:23Z",
+      "createdAt": "2026-09-29T11:54:07Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/calculum",
+      "name": "calculum",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "A free Mac app with 281 calculators for everyday decisions, from mortgages to road trips, plus a command line tool",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T11:37:21Z",
+      "createdAt": "2026-10-02T07:59:09Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/blueprint",
+      "name": "blueprint",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Draws how your apps are built, every workflow and the data they store, from maps your coding agents write",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T11:37:18Z",
+      "createdAt": "2026-10-04T08:13:44Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/things-cli",
+      "name": "things-cli",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Dependency-free command line tool for Things 3 on macOS",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-10-05T07:24:38Z",
+      "createdAt": "2026-09-08T15:39:56Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/waiting-lists",
+      "name": "waiting-lists",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Self-hosted email waiting lists with double opt-in, admin dashboard, API and CLI. Astro + Cloudflare Workers + D1.",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-09-09T10:48:31Z",
+      "createdAt": "2026-09-09T10:21:00Z",
+      "primaryLanguage": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/tte-js",
+      "name": "tte-js",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "37 terminal-style text effects for the browser. Plain JavaScript, Canvas, no dependencies.",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-09-09T10:48:29Z",
+      "createdAt": "2026-09-09T10:20:31Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/port-pilot",
+      "name": "port-pilot",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "See, check and stop every local service from a macOS menu bar app, a terminal dashboard or an agent-friendly CLI.",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-09-09T10:48:27Z",
+      "createdAt": "2026-09-09T10:20:46Z",
+      "primaryLanguage": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/plausible-automation",
+      "name": "plausible-automation",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "macOS CLI and Codex skill to manage a self-hosted Plausible CE instance: sites, trackers, goals, reports.",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-09-09T10:48:26Z",
+      "createdAt": "2026-09-09T10:21:08Z",
+      "primaryLanguage": {
+        "name": "Python",
+        "color": "#3572A5"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/local-hoster",
+      "name": "local-hoster",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Stable https://project.localhost URLs for local dev servers, via Caddy. Zero-dependency Node.js CLI.",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-09-09T10:48:24Z",
+      "createdAt": "2026-09-09T10:20:53Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/livestream-recorder",
+      "name": "livestream-recorder",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Native macOS app that records live YouTube streams to local MP4 files with yt-dlp and FFmpeg.",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-09-09T10:48:23Z",
+      "createdAt": "2026-09-09T10:21:15Z",
+      "primaryLanguage": {
+        "name": "Swift",
+        "color": "#F05138"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/events-logger",
+      "name": "events-logger",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Self-hosted event tracking dashboard with REST API and CLI. Astro + HTMX + Alpine.js + SQLite.",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-09-09T10:48:21Z",
+      "createdAt": "2026-09-09T10:21:23Z",
+      "primaryLanguage": {
+        "name": "Astro",
+        "color": "#ff5a03"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/cloudflare-domains",
+      "name": "cloudflare-domains",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Guarded Cloudflare Registrar MCP server plus a companion DNS CLI. You approve every domain purchase.",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-09-09T10:48:20Z",
+      "createdAt": "2026-09-09T10:20:39Z",
+      "primaryLanguage": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/fstack",
+      "name": "fstack",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2026-07-17T14:58:52Z",
+      "createdAt": "2026-07-12T11:32:24Z",
+      "primaryLanguage": null
+    },
+    {
+      "nameWithOwner": "flaviocopes/my-bun-app",
+      "name": "my-bun-app",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2025-10-21T17:51:40Z",
+      "createdAt": "2025-10-21T16:52:26Z",
+      "primaryLanguage": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/privatearea",
+      "name": "privatearea",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2025-07-17T09:36:17Z",
+      "createdAt": "2025-07-17T08:24:31Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/bootcamp",
+      "name": "bootcamp",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2025-05-27T18:27:27Z",
+      "createdAt": "2025-03-16T11:13:12Z",
+      "primaryLanguage": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/aha-stack-masterclass",
+      "name": "aha-stack-masterclass",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2025-05-23T09:45:11Z",
+      "createdAt": "2025-05-23T05:20:40Z",
+      "primaryLanguage": {
+        "name": "Astro",
+        "color": "#ff5a03"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/bootcamp-aha-todo-app",
+      "name": "bootcamp-aha-todo-app",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2024-10-09T06:57:25Z",
+      "createdAt": "2024-10-08T14:05:20Z",
+      "primaryLanguage": {
+        "name": "Astro",
+        "color": "#ff5a03"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/bootcamp-2024",
+      "name": "bootcamp-2024",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2024-10-08T13:11:08Z",
+      "createdAt": "2024-02-26T13:17:10Z",
+      "primaryLanguage": {
+        "name": "Astro",
+        "color": "#ff5a03"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/htmx",
+      "name": "htmx",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "</> htmx - high power tools for HTML",
+      "isPrivate": false,
+      "isFork": true,
+      "isArchived": false,
+      "pushedAt": "2024-08-07T16:22:18Z",
+      "createdAt": "2024-08-08T09:27:08Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/astromediasystems",
+      "name": "astromediasystems",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2024-01-07T09:49:55Z",
+      "createdAt": "2024-01-07T09:18:51Z",
+      "primaryLanguage": {
+        "name": "Astro",
+        "color": "#ff5a03"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/svelte-sapper-spreadsheet-project",
+      "name": "svelte-sapper-spreadsheet-project",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Project included in the JavaScript Bootcamp https://thejsbootcamp.com",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2023-01-06T13:05:28Z",
+      "createdAt": "2020-08-02T08:12:47Z",
+      "primaryLanguage": {
+        "name": "HTML",
+        "color": "#e34c26"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/bootcamp-2022-resources",
+      "name": "bootcamp-2022-resources",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Collection of resources for the Bootcamp",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2022-11-14T19:22:52Z",
+      "createdAt": "2022-04-11T07:13:24Z",
+      "primaryLanguage": null
+    },
+    {
+      "nameWithOwner": "flaviocopes/bootcamp-2022-week-17-privatearea",
+      "name": "bootcamp-2022-week-17-privatearea",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2022-07-13T15:43:49Z",
+      "createdAt": "2022-07-12T18:01:49Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/bootcamp-2022-common-initial-project-setup",
+      "name": "bootcamp-2022-common-initial-project-setup",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2022-06-02T17:02:50Z",
+      "createdAt": "2022-06-01T14:27:16Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/react-spreadsheet-component",
+      "name": "react-spreadsheet-component",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "This repo contains the code powering a simple spreadsheet-like React component",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2022-05-21T19:41:18Z",
+      "createdAt": "2017-08-30T14:20:02Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/week-2-project-website",
+      "name": "week-2-project-website",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2022-04-17T18:13:21Z",
+      "createdAt": "2022-04-09T15:07:37Z",
+      "primaryLanguage": {
+        "name": "Astro",
+        "color": "#ff5a03"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/test-landing",
+      "name": "test-landing",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2021-12-19T14:15:22Z",
+      "createdAt": "2021-12-19T13:18:16Z",
+      "primaryLanguage": {
+        "name": "HTML",
+        "color": "#e34c26"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/flaviocopes",
+      "name": "flaviocopes",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2020-09-24T17:51:21Z",
+      "createdAt": "2020-07-10T06:46:50Z",
+      "primaryLanguage": null
+    },
+    {
+      "nameWithOwner": "flaviocopes/node-course-project-newsletter",
+      "name": "node-course-project-newsletter",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2020-09-04T05:45:54Z",
+      "createdAt": "2018-11-05T09:41:13Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/electron-rss",
+      "name": "electron-rss",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2020-08-27T15:50:48Z",
+      "createdAt": "2020-08-27T15:47:16Z",
+      "primaryLanguage": {
+        "name": "HTML",
+        "color": "#e34c26"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/ionic-project-weight",
+      "name": "ionic-project-weight",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2020-08-16T21:36:13Z",
+      "createdAt": "2020-08-16T21:36:06Z",
+      "primaryLanguage": {
+        "name": "TypeScript",
+        "color": "#3178c6"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/reactnativeclassifieds",
+      "name": "reactnativeclassifieds",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2020-08-15T20:40:02Z",
+      "createdAt": "2020-08-15T20:39:55Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/vue-developer-roadmap",
+      "name": "vue-developer-roadmap",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Roadmap to becoming a Vue.js developer in 2019",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2020-05-07T12:10:47Z",
+      "createdAt": "2018-07-07T14:37:59Z",
+      "primaryLanguage": null
+    },
+    {
+      "nameWithOwner": "flaviocopes/react-counter",
+      "name": "react-counter",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Part of the React Course",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2020-02-25T02:59:26Z",
+      "createdAt": "2019-01-19T11:06:02Z",
+      "primaryLanguage": {
+        "name": "HTML",
+        "color": "#e34c26"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/react-bill-tracker",
+      "name": "react-bill-tracker",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Part of the React Course",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2020-01-06T06:12:31Z",
+      "createdAt": "2019-01-19T11:08:56Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/vuehandbook",
+      "name": "vuehandbook",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2019-11-24T22:26:19Z",
+      "createdAt": "2018-07-01T09:53:40Z",
+      "primaryLanguage": null
+    },
+    {
+      "nameWithOwner": "flaviocopes/grav-plugin-shoppingcart",
+      "name": "grav-plugin-shoppingcart",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Grav ShoppingCart Plugin - NOT SUPPORTED, NOT MAINTAINED",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2019-11-08T10:40:45Z",
+      "createdAt": "2015-10-03T11:49:08Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/react-githubusers",
+      "name": "react-githubusers",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Part of the React Course",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2019-11-02T18:37:34Z",
+      "createdAt": "2019-01-19T11:05:41Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/zero-to-app",
+      "name": "zero-to-app",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2019-06-27T12:53:01Z",
+      "createdAt": "2019-06-27T12:52:18Z",
+      "primaryLanguage": null
+    },
+    {
+      "nameWithOwner": "flaviocopes/datastructures",
+      "name": "datastructures",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Go Data Structures https://flaviocopes.com/golang-data-structures/",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2019-03-25T10:33:02Z",
+      "createdAt": "2017-08-12T14:43:46Z",
+      "primaryLanguage": {
+        "name": "Go",
+        "color": "#00ADD8"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/react-pixel-art",
+      "name": "react-pixel-art",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Part of the React Course",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2019-02-21T10:04:42Z",
+      "createdAt": "2019-01-19T11:05:18Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/react-ecommerce",
+      "name": "react-ecommerce",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Part of the React Course",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2019-02-02T13:45:13Z",
+      "createdAt": "2019-01-07T16:35:55Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/react-spreadsheet",
+      "name": "react-spreadsheet",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": "Part of the React Course",
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2019-01-19T11:55:40Z",
+      "createdAt": "2019-01-19T11:55:33Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    },
+    {
+      "nameWithOwner": "flaviocopes/peerjs-example-photosharing",
+      "name": "peerjs-example-photosharing",
+      "owner": {
+        "login": "flaviocopes"
+      },
+      "description": null,
+      "isPrivate": false,
+      "isFork": false,
+      "isArchived": false,
+      "pushedAt": "2018-11-23T11:00:10Z",
+      "createdAt": "2018-11-23T10:59:02Z",
+      "primaryLanguage": {
+        "name": "JavaScript",
+        "color": "#f1e05a"
+      }
+    }
+  ],
+  "commits": {
+    "importer-for-blackmagic-cam": 4,
+    "vm-monitor": 7,
+    "testvm": 1,
+    "releases": 26,
+    "vimeo-cli": 2,
+    "blips": 5,
+    "cli-tools": 34,
+    "snake": 6,
+    "factorylog": 9,
+    "tabmerger": 6,
+    "notion-presenter-view": 6,
+    "soundscape": 21,
+    "skillscout": 17,
+    "postdeck": 10,
+    "noterepo": 32,
+    "calculum": 5,
+    "blueprint": 17,
+    "things-cli": 11,
+    "waiting-lists": 3,
+    "tte-js": 3,
+    "port-pilot": 3,
+    "plausible-automation": 3,
+    "local-hoster": 3,
+    "livestream-recorder": 3,
+    "events-logger": 3,
+    "cloudflare-domains": 3,
+    "fstack": 15
+  },
+  "visitsHoursAgo": {
+    "blueprint": [
+      1,
+      3,
+      20,
+      26,
+      50,
+      75
+    ],
+    "releases": [
+      2,
+      5,
+      28,
+      54,
+      100
+    ],
+    "cli-tools": [
+      4,
+      30,
+      70,
+      120
+    ],
+    "noterepo": [
+      6,
+      48,
+      96
+    ],
+    "soundscape": [
+      10,
+      80
+    ]
+  }
+}

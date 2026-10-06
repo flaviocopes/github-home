@@ -1,0 +1,301 @@
+html[data-github-home] .application-main > :not(#github-home),
+html[data-github-home] [data-github-home-host] > :not(#github-home) {
+  display: none !important;
+}
+
+#github-home {
+  --gh-home-fg: var(--fgColor-default, #1f2328);
+  --gh-home-muted: var(--fgColor-muted, #59636e);
+  --gh-home-accent: var(--fgColor-accent, #0969da);
+  --gh-home-bg: var(--bgColor-default, #ffffff);
+  --gh-home-bg-muted: var(--bgColor-muted, #f6f8fa);
+  --gh-home-border: var(--borderColor-default, #d1d9e0);
+  --gh-home-border-muted: var(--borderColor-muted, #d1d9e0b3);
+  --gh-home-selected: var(--bgColor-accent-muted, #ddf4ff);
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  color: var(--gh-home-fg);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#github-home *,
+#github-home *::before,
+#github-home *::after {
+  box-sizing: border-box;
+}
+
+.gh-home-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.gh-home-title {
+  margin: 0 auto 0 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.gh-home-filter {
+  width: 100%;
+  max-width: 360px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--gh-home-border);
+  border-radius: 6px;
+  background: var(--gh-home-bg);
+  color: var(--gh-home-fg);
+  font: inherit;
+}
+
+.gh-home-filter:focus {
+  outline: 2px solid var(--gh-home-accent);
+  outline-offset: -1px;
+}
+
+.gh-home-button {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 16px;
+  border: 1px solid var(--button-default-borderColor-rest, var(--gh-home-border));
+  border-radius: 6px;
+  background: var(--button-default-bgColor-rest, var(--gh-home-bg-muted));
+  color: var(--gh-home-fg);
+  font: inherit;
+  font-weight: 500;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.gh-home-button-primary {
+  border-color: var(--button-primary-borderColor-rest, rgb(31 35 40 / 15%));
+  background: var(--button-primary-bgColor-rest, #1f883d);
+  color: var(--button-primary-fgColor-rest, #ffffff);
+}
+
+.gh-home-button-primary:hover {
+  background: var(--button-primary-bgColor-hover, #1c8139);
+}
+
+.gh-home-link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--gh-home-accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.gh-home-link-button:hover {
+  text-decoration: underline;
+}
+
+.gh-home-sections {
+  display: grid;
+  gap: 24px;
+}
+
+.gh-home-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .gh-home-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gh-home-header {
+    flex-wrap: wrap;
+  }
+}
+
+.gh-home-section,
+.gh-home-box {
+  border: 1px solid var(--gh-home-border);
+  border-radius: 6px;
+  background: var(--gh-home-bg);
+  overflow: hidden;
+}
+
+.gh-home-box {
+  padding: 24px;
+}
+
+.gh-home-box p {
+  margin: 0;
+  color: var(--gh-home-muted);
+}
+
+.gh-home-setup {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+}
+
+.gh-home-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--gh-home-border);
+  background: var(--gh-home-bg-muted);
+}
+
+.gh-home-section-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.gh-home-section-note {
+  color: var(--gh-home-muted);
+  font-size: 12px;
+}
+
+.gh-home-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gh-home-repo + .gh-home-repo {
+  border-top: 1px solid var(--gh-home-border-muted);
+}
+
+.gh-home-repo-link {
+  display: grid;
+  gap: 2px;
+  padding: 10px 16px;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.gh-home-repo-link:hover,
+.gh-home-repo-link.is-selected {
+  background: var(--gh-home-bg-muted);
+}
+
+.gh-home-repo-link.is-selected {
+  box-shadow: inset 2px 0 0 var(--gh-home-accent);
+}
+
+.gh-home-repo-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.gh-home-repo-owner {
+  color: var(--gh-home-accent);
+  white-space: nowrap;
+}
+
+.gh-home-repo-name {
+  overflow: hidden;
+  color: var(--gh-home-accent);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gh-home-repo-link:hover .gh-home-repo-name {
+  text-decoration: underline;
+}
+
+.gh-home-badge {
+  flex: none;
+  padding: 0 7px;
+  border: 1px solid var(--gh-home-border);
+  border-radius: 2em;
+  color: var(--gh-home-muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.gh-home-badge-attention {
+  border-color: var(--borderColor-attention-emphasis, #9a6700);
+  color: var(--fgColor-attention, #9a6700);
+}
+
+.gh-home-repo-description {
+  overflow: hidden;
+  color: var(--gh-home-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gh-home-repo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: 2px;
+  color: var(--gh-home-muted);
+  font-size: 12px;
+}
+
+.gh-home-language {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gh-home-language-dot {
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgb(127 127 127 / 25%);
+  border-radius: 50%;
+}
+
+.gh-home-empty {
+  margin: 0;
+  padding: 16px;
+  color: var(--gh-home-muted);
+}
+
+.gh-home-more {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  border: 0;
+  border-top: 1px solid var(--gh-home-border);
+  background: var(--gh-home-bg-muted);
+  color: var(--gh-home-accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.gh-home-more:hover {
+  text-decoration: underline;
+}
+
+.gh-home-banner {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  border: 1px solid var(--borderColor-attention-muted, #d4a72c66);
+  border-radius: 6px;
+  background: var(--bgColor-attention-muted, #fff8c5);
+}
+
+.gh-home-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+  color: var(--gh-home-muted);
+  font-size: 12px;
+}
