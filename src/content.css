@@ -104,16 +104,6 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
   align-items: start;
 }
 
-@media (max-width: 1000px) {
-  .gh-home-columns {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .gh-home-header {
-    flex-wrap: wrap;
-  }
-}
-
 .gh-home-box {
   padding: 24px;
   border: 1px solid var(--gh-home-border);
@@ -216,4 +206,57 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
   margin-top: 16px;
   color: var(--gh-home-muted);
   font-size: 12px;
+}
+
+/* Three columns down to small windows, with smaller text and spacing as it narrows */
+@media (max-width: 1100px) {
+  #github-home {
+    padding: 24px 16px 40px;
+    font-size: 13px;
+  }
+
+  .gh-home-columns {
+    gap: 20px;
+  }
+
+  .gh-home-repo-link {
+    gap: 8px;
+    padding: 6px;
+  }
+
+  .gh-home-repo-meta {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 800px) {
+  #github-home {
+    font-size: 12px;
+  }
+
+  .gh-home-title {
+    font-size: 18px;
+  }
+
+  .gh-home-section-title {
+    font-size: 13px;
+  }
+
+  .gh-home-columns {
+    gap: 12px;
+  }
+
+  .gh-home-repo-link {
+    padding: 5px 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gh-home-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gh-home-header {
+    flex-wrap: wrap;
+  }
 }

@@ -8,7 +8,7 @@ import { DEMO_TOKEN, launch, loadDemoData, serveDemoApi, serveFakeGitHub } from 
 
 const extension = process.argv[2] ? resolve(process.argv[2]) : fileURLToPath(new URL('..', import.meta.url))
 const data = await loadDemoData()
-const { context, worker, id } = await launch(extension)
+const { context, worker, id, reload } = await launch(extension)
 const storage = (keys) => worker.evaluate((keys) => chrome.storage.local.get(keys), keys)
 const setStorage = (items) => worker.evaluate((items) => chrome.storage.local.set(items), items)
 const names = (page, selector) => page.locator(`${selector} .gh-home-repo-name`).allTextContents()
@@ -44,6 +44,18 @@ try {
   assert.match(await cliTools.getAttribute('title'), /^One catalog for every CLI tool/, 'the description shows on hover')
   const factorylog = page.locator('.gh-home-columns .gh-home-section:nth-child(3) .gh-home-repo-link', { hasText: /^factorylog/ })
   assert.equal(await factorylog.textContent(), 'factorylog+57 ★', 'only stars from the last 7 days count')
+
+  const layout = () =>
+    page.evaluate(() => {
+      const tops = [...document.querySelectorAll('.gh-home-columns .gh-home-section')].map((section) => Math.round(section.getBoundingClientRect().top))
+      const name = [...document.querySelectorAll('.gh-home-repo-name')].find((node) => node.textContent === 'importer-for-blackmagic-cam')
+      return { columns: new Set(tops).size === 1 ? 3 : 1, cut: name.scrollWidth > name.clientWidth }
+    })
+  await page.setViewportSize({ width: 640, height: 900 })
+  assert.deepEqual(await layout(), { columns: 3, cut: true }, 'small windows keep three columns and cut long names')
+  await page.setViewportSize({ width: 560, height: 900 })
+  assert.equal((await layout()).columns, 1, 'tiny windows stack the lists')
+  await page.setViewportSize({ width: 1280, height: 900 })
 
   await page.keyboard.type('note')
   assert.deepEqual(await names(page, '.gh-home-results'), ['noterepo'])
@@ -118,6 +130,16 @@ try {
   await page.waitForTimeout(300)
   assert.equal(await page.locator('#github-home').count(), 0, 'logged-out visitors see the normal page')
   assert.equal(await page.locator('main').isVisible(), true)
+
+  // An update must not keep showing a fresh cache that an older version wrote without stars
+  await setStorage({ token: DEMO_TOKEN, cache: { login: 'flaviocopes', fetchedAt: Date.now(), repos: [], commits: {} } })
+  const updated = await reload()
+  let cache
+  for (let attempt = 0; attempt < 50 && !cache?.stars; attempt++) {
+    await new Promise((resolve) => setTimeout(resolve, 100))
+    ;({ cache } = await updated.evaluate(() => chrome.storage.local.get('cache')))
+  }
+  assert.equal(cache?.stars?.['flaviocopes/factorylog'], 57, 'the updated extension fetches again right away')
 
   assert.deepEqual(errors, [], 'no page errors')
   console.log(`ok: home page, search, navigation, visits, settings and error states, with ${data.repos.length} demo repos`)

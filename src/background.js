@@ -71,6 +71,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 chrome.action.onClicked.addListener(() => chrome.runtime.openOptionsPage())
 
+// A cache written by an older version can miss fields the new one shows
+chrome.runtime.onInstalled.addListener(() => refresh(true))
+
 function refresh(force = false) {
   inflight ??= runRefresh(force).finally(() => {
     inflight = null

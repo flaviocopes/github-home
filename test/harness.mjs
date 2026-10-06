@@ -20,7 +20,13 @@ export async function launch(extensionPath, { colorScheme = 'light', viewport = 
   const workerStarted = context.waitForEvent('serviceworker')
   const { id } = await cdp.send('Extensions.loadUnpacked', { path: extensionPath })
   const worker = context.serviceWorkers().find((w) => w.url().includes(id)) ?? (await workerStarted)
-  return { context, worker, id }
+  // Loading the same folder again is what Chrome's reload arrow does: an update, with a new worker
+  const reload = async () => {
+    const restarted = context.waitForEvent('serviceworker')
+    await cdp.send('Extensions.loadUnpacked', { path: extensionPath })
+    return restarted
+  }
+  return { context, worker, id, reload }
 }
 
 export async function loadDemoData() {
