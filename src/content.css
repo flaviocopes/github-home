@@ -99,12 +99,12 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
 
 .gh-home-columns {
   display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
   align-items: start;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .gh-home-columns {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -114,16 +114,11 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
   }
 }
 
-.gh-home-section,
 .gh-home-box {
+  padding: 24px;
   border: 1px solid var(--gh-home-border);
   border-radius: 6px;
   background: var(--gh-home-bg);
-  overflow: hidden;
-}
-
-.gh-home-box {
-  padding: 24px;
 }
 
 .gh-home-box p {
@@ -137,40 +132,28 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
   gap: 12px;
 }
 
-.gh-home-section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--gh-home-border);
-  background: var(--gh-home-bg-muted);
-}
-
 .gh-home-section-title {
-  margin: 0;
+  margin: 0 0 8px;
   font-size: 14px;
   font-weight: 600;
-}
-
-.gh-home-section-note {
-  color: var(--gh-home-muted);
-  font-size: 12px;
 }
 
 .gh-home-list {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.gh-home-repo + .gh-home-repo {
   border-top: 1px solid var(--gh-home-border-muted);
 }
 
+.gh-home-repo {
+  border-bottom: 1px solid var(--gh-home-border-muted);
+}
+
 .gh-home-repo-link {
-  display: grid;
-  gap: 2px;
-  padding: 10px 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 7px 8px;
   color: inherit !important;
   text-decoration: none !important;
 }
@@ -184,19 +167,8 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
   box-shadow: inset 2px 0 0 var(--gh-home-accent);
 }
 
-.gh-home-repo-title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-width: 0;
-}
-
-.gh-home-repo-owner {
-  color: var(--gh-home-accent);
-  white-space: nowrap;
-}
-
 .gh-home-repo-name {
+  flex: 1;
   overflow: hidden;
   color: var(--gh-home-accent);
   font-weight: 600;
@@ -204,58 +176,25 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
   white-space: nowrap;
 }
 
+.gh-home-repo-owner {
+  font-weight: 400;
+}
+
 .gh-home-repo-link:hover .gh-home-repo-name {
   text-decoration: underline;
 }
 
-.gh-home-badge {
-  flex: none;
-  padding: 0 7px;
-  border: 1px solid var(--gh-home-border);
-  border-radius: 2em;
-  color: var(--gh-home-muted);
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
-}
-
-.gh-home-badge-attention {
-  border-color: var(--borderColor-attention-emphasis, #9a6700);
-  color: var(--fgColor-attention, #9a6700);
-}
-
-.gh-home-repo-description {
-  overflow: hidden;
-  color: var(--gh-home-muted);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .gh-home-repo-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 16px;
-  margin-top: 2px;
+  flex: none;
   color: var(--gh-home-muted);
   font-size: 12px;
-}
-
-.gh-home-language {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.gh-home-language-dot {
-  width: 10px;
-  height: 10px;
-  border: 1px solid rgb(127 127 127 / 25%);
-  border-radius: 50%;
+  font-variant-numeric: tabular-nums;
 }
 
 .gh-home-empty {
   margin: 0;
-  padding: 16px;
+  padding: 12px 8px;
+  border-top: 1px solid var(--gh-home-border-muted);
   color: var(--gh-home-muted);
 }
 

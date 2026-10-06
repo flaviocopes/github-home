@@ -7,6 +7,7 @@ const FORGET_VISITS_AFTER = 180 * DAY
 const LEAVE_TIMEOUT = 1500
 const MOST_USED_COUNT = 10
 const RECENT_COUNT = 8
+const TRACTION_COUNT = 8
 const SEARCH_LIMIT = 30
 
 const RESERVED_OWNERS = new Set([
@@ -230,33 +231,39 @@ function render() {
 
 function homeView(now) {
   const { repos, login } = data.cache
-  const scored = scoreRepos(now)
-  const mostUsed = scored.filter((entry) => !entry.repo.archived && entry.score > 0.5).slice(0, MOST_USED_COUNT)
+  const stars = data.cache.stars ?? {}
+  const mostUsed = scoreRepos(now)
+    .filter((entry) => !entry.repo.archived && entry.score > 0.5)
+    .slice(0, MOST_USED_COUNT)
+    .map((entry) => entry.repo)
   const recent = repos
     .filter((repo) => !repo.fork && sameLogin(repo.owner, login))
     .sort((a, b) => b.createdAt - a.createdAt)
     .slice(0, RECENT_COUNT)
+  const traction = repos
+    .filter((repo) => !repo.private && !repo.fork && (repo.org || sameLogin(repo.owner, login)))
+    .map((repo) => ({ repo, stars: stars[repo.nwo.toLowerCase()] ?? 0 }))
+    .filter((entry) => entry.stars > 0)
+    .sort((a, b) => b.stars - a.stars)
+    .slice(0, TRACTION_COUNT)
 
   return h(
     'div',
     { class: 'gh-home-columns' },
     section(
       'Most used',
-      'Your commits, visits and pushes lately',
-      mostUsed.map(({ repo, commits, visits }) =>
-        repoRow(repo, [
-          commits ? plural(commits, 'commit') : null,
-          visits ? plural(visits, 'visit') : null,
-          repo.pushedAt ? `pushed ${timeAgo(repo.pushedAt, now)}` : null,
-        ]),
-      ),
+      mostUsed.map((repo) => repoRow(repo, shortAgo(repo.pushedAt, now))),
       'Nothing yet. Push some code or open a few repos.',
     ),
     section(
       'Recently created',
-      null,
-      recent.map((repo) => repoRow(repo, [`created ${timeAgo(repo.createdAt, now)}`])),
+      recent.map((repo) => repoRow(repo, shortAgo(repo.createdAt, now))),
       'No repositories yet.',
+    ),
+    section(
+      'Getting traction',
+      traction.map((entry) => repoRow(entry.repo, `+${entry.stars >= 100 ? '100+' : entry.stars} ★`)),
+      'No new stars this week.',
     ),
   )
 }
@@ -276,12 +283,12 @@ function resultsView(query, now) {
   ui.selected = Math.min(ui.selected, Math.max(results.length - 1, 0))
 
   const rows = results.map(({ repo }, index) => {
-    const row = repoRow(repo, [repo.pushedAt ? `updated ${timeAgo(repo.pushedAt, now)}` : null])
+    const row = repoRow(repo, shortAgo(repo.pushedAt, now))
     if (index === ui.selected) row.querySelector('a').classList.add('is-selected')
     return row
   })
 
-  const view = section('Results', String(results.length), rows, `No repositories match “${query}”.`)
+  const view = section(`Results (${results.length})`, rows, `No repositories match “${query}”.`)
   view.classList.add('gh-home-results')
   return view
 }
@@ -303,12 +310,7 @@ function scoreRepos(now) {
       const times = data.visits[key] ?? []
       const visitScore = times.reduce((sum, time) => sum + 0.5 ** ((now - time) / (14 * DAY)), 0)
       const pushScore = repo.pushedAt ? 6 * 0.5 ** ((now - repo.pushedAt) / (7 * DAY)) : 0
-      return {
-        repo,
-        commits: commitCount,
-        visits: times.filter((time) => now - time < 30 * DAY).length,
-        score: 1.5 * Math.log2(1 + commitCount) + visitScore + pushScore,
-      }
+      return { repo, score: 1.5 * Math.log2(1 + commitCount) + visitScore + pushScore }
     })
     .sort((a, b) => b.score - a.score)
 }
@@ -340,16 +342,11 @@ function onFilterKeydown(event) {
   }
 }
 
-function section(title, note, rows, emptyText) {
+function section(title, rows, emptyText) {
   return h(
     'section',
     { class: 'gh-home-section' },
-    h(
-      'div',
-      { class: 'gh-home-section-header' },
-      h('h2', { class: 'gh-home-section-title' }, title),
-      note ? h('span', { class: 'gh-home-section-note' }, note) : null,
-    ),
+    h('h2', { class: 'gh-home-section-title' }, title),
     rows.length
       ? h('ul', { class: 'gh-home-list' }, rows)
       : h('p', { class: 'gh-home-empty' }, emptyText),
@@ -363,30 +360,14 @@ function repoRow(repo, meta) {
     { class: 'gh-home-repo' },
     h(
       'a',
-      { class: 'gh-home-repo-link', href: `/${repo.nwo}` },
+      { class: 'gh-home-repo-link', href: `/${repo.nwo}`, title: repo.description || null },
       h(
         'span',
-        { class: 'gh-home-repo-title' },
-        ownRepo ? null : h('span', { class: 'gh-home-repo-owner' }, `${repo.owner} / `),
-        h('span', { class: 'gh-home-repo-name' }, repo.name),
-        repo.private ? h('span', { class: 'gh-home-badge' }, 'Private') : null,
-        repo.fork ? h('span', { class: 'gh-home-badge' }, 'Fork') : null,
-        repo.archived ? h('span', { class: 'gh-home-badge gh-home-badge-attention' }, 'Archived') : null,
+        { class: 'gh-home-repo-name' },
+        ownRepo ? null : h('span', { class: 'gh-home-repo-owner' }, `${repo.owner}/`),
+        repo.name,
       ),
-      repo.description ? h('span', { class: 'gh-home-repo-description' }, repo.description) : null,
-      h(
-        'span',
-        { class: 'gh-home-repo-meta' },
-        repo.language
-          ? h(
-              'span',
-              { class: 'gh-home-language' },
-              h('span', { class: 'gh-home-language-dot', style: { backgroundColor: repo.color ?? '' } }),
-              repo.language,
-            )
-          : null,
-        meta.filter(Boolean).map((text) => h('span', {}, text)),
-      ),
+      meta ? h('span', { class: 'gh-home-repo-meta' }, meta) : null,
     ),
   )
 }
@@ -419,8 +400,16 @@ function sameLogin(a, b) {
   return a.toLowerCase() === b.toLowerCase()
 }
 
-function plural(count, word) {
-  return `${count} ${word}${count === 1 ? '' : 's'}`
+function shortAgo(time, now) {
+  if (!time) return null
+  const minutes = Math.floor((now - time) / 60000)
+  if (minutes < 1) return 'now'
+  if (minutes < 60) return `${minutes}m`
+  if (minutes < 60 * 24) return `${Math.floor(minutes / 60)}h`
+  if (minutes < 60 * 24 * 7) return `${Math.floor(minutes / (60 * 24))}d`
+  if (minutes < 60 * 24 * 30) return `${Math.floor(minutes / (60 * 24 * 7))}w`
+  if (minutes < 60 * 24 * 365) return `${Math.floor(minutes / (60 * 24 * 30))}mo`
+  return `${Math.floor(minutes / (60 * 24 * 365))}y`
 }
 
 function timeAgo(time, now) {

@@ -49,17 +49,28 @@ export async function serveDemoApi(context, data) {
         json: { data: { viewer: { ...data.viewer, repositories: { pageInfo: { hasNextPage: false, endCursor: null }, nodes: data.repos } } } },
       })
     }
-    if (query.includes('query History')) {
+    if (query.includes('query Activity')) {
       const result = {}
       for (const [key, name] of Object.entries(variables)) {
         const index = key.match(/^name(\d+)$/)?.[1]
-        if (index) result[`r${index}`] = { defaultBranchRef: { target: { history: { totalCount: data.commits[name] ?? 0 } } } }
+        if (!index) continue
+        result[`r${index}`] = {
+          defaultBranchRef: { target: { history: { totalCount: data.commits[name] ?? 0 } } },
+          stargazers: { edges: starEdges(data.starsThisWeek[name] ?? 0) },
+        }
       }
       return route.fulfill({ json: { data: result } })
     }
     return route.fulfill({ status: 400, json: { errors: [{ message: 'Unknown query' }] } })
   })
 }
+
+// The stars from this week, newest first, then three older ones that must not count
+const starEdges = (thisWeek) =>
+  [
+    ...Array.from({ length: thisWeek }, (_, i) => Date.now() - (i + 1) * 2 * HOUR),
+    ...[10, 20, 40].map((days) => Date.now() - days * 24 * HOUR),
+  ].map((time) => ({ starredAt: new Date(time).toISOString() }))
 
 export async function serveFakeGitHub(context, { login = 'flaviocopes', loggedIn = true } = {}) {
   await context.route('https://github.com/**', (route) => {

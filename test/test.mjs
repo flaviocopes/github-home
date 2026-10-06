@@ -29,19 +29,21 @@ try {
   assert.equal(await page.locator('.app-header').isVisible(), true, 'the GitHub header stays')
   assert.equal(await page.evaluate(() => document.activeElement.className), 'gh-home-filter', 'the search box has focus')
 
-  const [mostUsed, recent] = await Promise.all([
-    names(page, '.gh-home-columns .gh-home-section:first-child'),
-    names(page, '.gh-home-columns .gh-home-section:last-child'),
-  ])
+  assert.deepEqual(await page.locator('#github-home .gh-home-section-title').allTextContents(), ['Most used', 'Recently created', 'Getting traction'])
+  const [mostUsed, recent, traction] = await Promise.all([1, 2, 3].map((n) => names(page, `.gh-home-columns .gh-home-section:nth-child(${n})`)))
   assert.equal(mostUsed.length, 10)
   assert.ok(mostUsed.indexOf('blueprint') < mostUsed.indexOf('fstack') || !mostUsed.includes('fstack'), 'recent work beats old commits')
   assert.ok(mostUsed.slice(0, 4).includes('releases'), 'commits, pushes and visits put releases near the top')
   assert.equal(recent[0], 'testvm', 'the newest repo comes first')
   assert.ok(!recent.includes('htmx'), 'forks are not in Recently created')
-  const cliTools = page.locator('.gh-home-repo', { has: page.locator('.gh-home-repo-name', { hasText: /^cli-tools$/ }) }).first()
-  assert.match(await cliTools.textContent(), /34 commits/)
+  assert.deepEqual(traction.slice(0, 3), ['factorylog', 'skillscout', 'noterepo'], 'the most stars this week come first')
+  assert.ok(!traction.includes('fstack'), 'repos without recent pushes are not checked for stars')
 
-  assert.deepEqual(await page.locator('#github-home .gh-home-section-title').allTextContents(), ['Most used', 'Recently created'], 'only the two lists')
+  const cliTools = page.locator('.gh-home-columns .gh-home-section:first-child .gh-home-repo-link', { hasText: /^cli-tools/ })
+  assert.match(await cliTools.textContent(), /^cli-tools\d+h$/, 'a row is the name and the last push, nothing else')
+  assert.match(await cliTools.getAttribute('title'), /^One catalog for every CLI tool/, 'the description shows on hover')
+  const factorylog = page.locator('.gh-home-columns .gh-home-section:nth-child(3) .gh-home-repo-link', { hasText: /^factorylog/ })
+  assert.equal(await factorylog.textContent(), 'factorylog+57 ★', 'only stars from the last 7 days count')
 
   await page.keyboard.type('note')
   assert.deepEqual(await names(page, '.gh-home-results'), ['noterepo'])

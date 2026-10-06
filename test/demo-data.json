@@ -1051,5 +1051,19 @@
       10,
       80
     ]
+  },
+  "starsThisWeek": {
+    "factorylog": 57,
+    "skillscout": 55,
+    "noterepo": 45,
+    "soundscape": 7,
+    "releases": 6,
+    "calculum": 5,
+    "cli-tools": 5,
+    "blueprint": 4,
+    "vm-monitor": 3,
+    "snake": 1,
+    "postdeck": 1,
+    "fstack": 1
   }
 }

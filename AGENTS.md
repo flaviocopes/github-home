@@ -1,11 +1,11 @@
 # GitHub Home
 
-A Chrome extension that replaces the github.com home page with your repositories: the ones you use the most, the ones you created recently, and a search box. It's plain JavaScript with no build step.
+A Chrome extension that replaces the github.com home page with three short lists of your repositories (most used, recently created, getting traction) and a search box. It's plain JavaScript with no build step.
 
 ## Files
 
 - `manifest.json`: Manifest V3. Permissions: `storage`, plus host access to `api.github.com`. The content script runs on `github.com/*` at `document_start`.
-- `src/background.js`: the service worker. It fetches every repo you own, belong to through an organization or collaborate on with the GraphQL API, sorted by last push. Then it counts your commits in the last 90 days on the default branch of each repo pushed in that window, in parallel batches of 10. It caches the result in `chrome.storage.local` and refreshes it when it's older than 5 minutes.
+- `src/background.js`: the service worker. It fetches every repo you own, belong to through an organization or collaborate on with the GraphQL API, sorted by last push. Then, for each repo pushed in the last 90 days, it counts your commits on the default branch in that window and the stars from the last 7 days, in parallel batches of 10. It caches the result in `chrome.storage.local` and refreshes it when it's older than 5 minutes.
 - `src/content.js`: on `/` and `/dashboard` it hides GitHub's content, injects the list into `.application-main` and renders it from the cache. On every page it records visits to `owner/repo` paths. A `MutationObserver` keeps it working across GitHub's in-page navigation.
 - `src/content.css`: the hiding rules and the list's styles, built on GitHub's own CSS variables so light and dark themes follow the site.
 - `src/options.html`, `src/options.js`, `src/options.css`: the settings page, for the token and the visit history.

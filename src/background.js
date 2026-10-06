@@ -1,6 +1,7 @@
 const API_URL = 'https://api.github.com/graphql'
 const STALE_AFTER = 5 * 60 * 1000
 const ACTIVITY_DAYS = 90
+const STAR_DAYS = 7
 const MAX_PAGES = 20
 const HISTORY_BATCH = 10
 
@@ -26,7 +27,7 @@ const REPOS_QUERY = `
           isArchived
           pushedAt
           createdAt
-          primaryLanguage { name color }
+          isInOrganization
         }
       }
     }
@@ -35,19 +36,22 @@ const REPOS_QUERY = `
 
 // GitHub hides private repos from contributionsCollection, even for the owner,
 // so commits are counted on each repo's default branch instead
-function historyQuery(count) {
+function activityQuery(count) {
   const indexes = [...Array(count).keys()]
   return `
-    query History($from: GitTimestamp!, $author: ID!, ${indexes.map((i) => `$owner${i}: String!, $name${i}: String!`).join(', ')}) {
-      ${indexes.map((i) => `r${i}: repository(owner: $owner${i}, name: $name${i}) { ...History }`).join('\n')}
+    query Activity($from: GitTimestamp!, $author: ID!, ${indexes.map((i) => `$owner${i}: String!, $name${i}: String!`).join(', ')}) {
+      ${indexes.map((i) => `r${i}: repository(owner: $owner${i}, name: $name${i}) { ...Activity }`).join('\n')}
     }
-    fragment History on Repository {
+    fragment Activity on Repository {
       defaultBranchRef {
         target {
           ... on Commit {
             history(since: $from, author: { id: $author }, first: 0) { totalCount }
           }
         }
+      }
+      stargazers(first: 100, orderBy: { field: STARRED_AT, direction: DESC }) {
+        edges { starredAt }
       }
     }
   `
@@ -94,7 +98,7 @@ async function fetchRepos(token) {
   const repos = []
   let viewer = null
   let cursor = null
-  let commits = null
+  let activity = null
 
   for (let page = 0; page < MAX_PAGES; page++) {
     const data = await graphql(token, REPOS_QUERY, { cursor })
@@ -104,24 +108,28 @@ async function fetchRepos(token) {
 
     // Repos come sorted by last push, so once one is older than `since` we know every active repo
     const done = !pageInfo.hasNextPage
-    if (!commits && (done || repos.at(-1).pushedAt < since)) {
+    if (!activity && (done || repos.at(-1).pushedAt < since)) {
       const active = repos.filter((repo) => repo.pushedAt >= since)
-      commits = fetchCommitCounts(token, active, viewer.id, since)
+      activity = fetchActivity(token, active, viewer.id, since)
     }
     if (done) break
     cursor = pageInfo.endCursor
   }
 
-  return { login: viewer.login, fetchedAt: Date.now(), repos, commits: (await commits) ?? {} }
+  const { commits, stars } = (await activity) ?? { commits: {}, stars: {} }
+  return { login: viewer.login, fetchedAt: Date.now(), repos, commits, stars }
 }
 
-async function fetchCommitCounts(token, active, authorId, since) {
+// Commits by you in the last 90 days, and stars from anyone in the last 7 days
+async function fetchActivity(token, active, authorId, since) {
   const batches = []
   for (let i = 0; i < active.length; i += HISTORY_BATCH) {
     batches.push(active.slice(i, i + HISTORY_BATCH))
   }
 
+  const starsSince = Date.now() - STAR_DAYS * 24 * 60 * 60 * 1000
   const commits = {}
+  const stars = {}
   await Promise.all(
     batches.map(async (batch) => {
       const variables = { from: new Date(since).toISOString(), author: authorId }
@@ -129,14 +137,18 @@ async function fetchCommitCounts(token, active, authorId, since) {
         variables[`owner${i}`] = repo.owner
         variables[`name${i}`] = repo.name
       })
-      const data = await graphql(token, historyQuery(batch.length), variables)
+      const data = await graphql(token, activityQuery(batch.length), variables)
       batch.forEach((repo, i) => {
-        const count = data[`r${i}`]?.defaultBranchRef?.target?.history?.totalCount
-        if (count) commits[repo.nwo.toLowerCase()] = count
+        const node = data[`r${i}`]
+        const key = repo.nwo.toLowerCase()
+        const count = node?.defaultBranchRef?.target?.history?.totalCount
+        if (count) commits[key] = count
+        const recent = (node?.stargazers.edges ?? []).filter((edge) => Date.parse(edge.starredAt) >= starsSince).length
+        if (recent) stars[key] = recent
       })
     }),
   )
-  return commits
+  return { commits, stars }
 }
 
 async function graphql(token, query, variables) {
@@ -175,7 +187,6 @@ function toRepo(node) {
     archived: node.isArchived,
     pushedAt: Date.parse(node.pushedAt) || 0,
     createdAt: Date.parse(node.createdAt) || 0,
-    language: node.primaryLanguage?.name ?? null,
-    color: node.primaryLanguage?.color ?? null,
+    org: node.isInOrganization,
   }
 }

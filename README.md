@@ -1,12 +1,12 @@
 <img src="docs/banner.png" alt="GitHub Home, a Chrome extension that shows your repositories on the GitHub home page" />
 
-GitHub Home is a Chrome extension that replaces the GitHub home page with a list of your repositories. You see the ones you work on the most, the ones you created recently, and a search box to jump to any of them.
+GitHub Home is a Chrome extension that replaces the GitHub home page with a list of your repositories. You see the ones you work on the most, the ones you created recently, the ones getting stars this week, and a search box to jump to any of them.
 
 I open github.com to get to one of my repos, and the home page shows me a feed instead. With GitHub Home, I land on my repos, type a few letters and press Enter.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dark.png" />
-  <img src="docs/screenshot-light.png" alt="The GitHub home page with GitHub Home: most used repos on the left, recently created ones on the right" />
+  <img src="docs/screenshot-light.png" alt="The GitHub home page with GitHub Home: three short lists of repos, most used, recently created and getting traction" />
 </picture>
 
 ## Install
@@ -35,10 +35,12 @@ To hear about new versions, click **Watch** on this repo, then **Custom** and **
 
 ## Features
 
-- **Most used** lists the 10 repos you work on the most right now, with your commits, your visits and the last push for each.
-- **Recently created** lists your 8 newest repos. Forks are left out.
+- **Most used** lists the 10 repos you work on the most right now, with the time of the last push.
+- **Recently created** lists your 8 newest repos, with how long ago you created them. Forks are left out.
+- **Getting traction** lists the 8 public repos that got the most stars in the last 7 days, with the count.
+- Each repo is one line: its name, and a time or a star count. Hover over it to see the description.
 - The search box has the focus when the page loads. Type part of a name or a description, move with the arrow keys, and press Enter to open the repo. Cmd+Enter (Ctrl+Enter on Windows and Linux) opens it in a new tab, and Escape clears the search.
-- The search covers every repo, not only the ones in the two lists: the repos you own, the ones in your organizations and the ones you collaborate on. Private, fork and archived repos get a label.
+- The search covers every repo, not only the ones in the lists: the repos you own, the ones in your organizations and the ones you collaborate on.
 - It follows GitHub's light or dark theme, because it uses GitHub's own colors.
 - Logged out, you see the normal GitHub home page.
 
@@ -54,7 +56,15 @@ Visits and pushes count less as they get older. Visits to the same repo less tha
 
 The commit counts come from each repo's own history, not from your contribution graph. GitHub leaves private repos out of the contribution data, even when you ask about your own account, so the graph misses most private work.
 
-The list is cached, so the page shows up right away. When the cache is older than 5 minutes, GitHub Home refreshes it in the background. The **Refresh** link at the bottom of the page does it right away.
+## How "Getting traction" works
+
+For each repo pushed in the last 90 days, GitHub Home reads its newest 100 stars and counts the ones from the last 7 days. A repo you released last week that got 50 stars shows up. An old repo with thousands of stars and none this week doesn't.
+
+It only lists public repos you own or that belong to your organizations, and leaves out forks.
+
+## The cache
+
+The lists are cached, so the page shows up right away. When the cache is older than 5 minutes, GitHub Home refreshes it in the background. The **Refresh** link at the bottom of the page does it right away.
 
 ## Privacy
 
@@ -92,7 +102,7 @@ Working with an AI coding agent? Point it at [AGENTS.md](AGENTS.md). It has the 
 
 ## How it works
 
-The service worker, `src/background.js`, asks the GitHub GraphQL API for your repositories, 100 at a time, sorted by last push. For each repo pushed in the last 90 days, it counts your commits on the default branch, 10 repos per request, all in parallel. It saves the result in `chrome.storage.local`.
+The service worker, `src/background.js`, asks the GitHub GraphQL API for your repositories, 100 at a time, sorted by last push. For each repo pushed in the last 90 days, it counts your commits on the default branch and the stars from the last 7 days, 10 repos per request, all in parallel. It saves the result in `chrome.storage.local`.
 
 The content script, `src/content.js`, starts before the page draws. On the home page, a CSS rule hides GitHub's content, and the script injects the list in its place, rendered from the cache. GitHub swaps pages without a full reload, so a `MutationObserver` watches for the address to change and puts the list back when you return home.
 
