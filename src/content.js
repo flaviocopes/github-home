@@ -19,7 +19,7 @@ const RESERVED_OWNERS = new Set([
 
 const relativeTime = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
 
-let data = { loaded: false, cache: null, visits: {}, hasToken: false, error: null }
+let data = { loaded: false, cache: null, visits: {}, starred: [], hasToken: false, error: null }
 let ui = null
 let lastPath = null
 let leaveTimer = null
@@ -33,7 +33,7 @@ for (const event of ['DOMContentLoaded', 'popstate', 'pageshow', 'turbo:load', '
 }
 
 chrome.storage.onChanged.addListener((changes, area) => {
-  if (area === 'local' && ['cache', 'token', 'error'].some((key) => key in changes)) load()
+  if (area === 'local' && ['cache', 'token', 'error', 'starred'].some((key) => key in changes)) load()
 })
 
 load()
@@ -107,11 +107,12 @@ function isLoggedIn() {
 
 async function load() {
   if (!chrome.runtime?.id) return
-  const stored = await chrome.storage.local.get(['cache', 'visits', 'token', 'error'])
+  const stored = await chrome.storage.local.get(['cache', 'visits', 'starred', 'token', 'error'])
   data = {
     loaded: true,
     cache: stored.cache ?? null,
     visits: stored.visits ?? {},
+    starred: stored.starred ?? [],
     hasToken: Boolean(stored.token),
     error: stored.error ?? null,
   }
@@ -230,10 +231,12 @@ function render() {
 function homeView(now) {
   const { repos, login } = data.cache
   const stars = data.cache.stars ?? {}
-  const mostUsed = scoreRepos(now)
-    .filter((entry) => !entry.repo.archived && entry.score > 0.5)
-    .slice(0, LIST_SIZE)
+  const byKey = new Map(repos.map((repo) => [repo.nwo.toLowerCase(), repo]))
+  const starred = data.starred.map((key) => byKey.get(key)).filter(Boolean)
+  const used = scoreRepos(now)
+    .filter((entry) => !entry.repo.archived && entry.score > 0.5 && !isStarred(entry.repo))
     .map((entry) => entry.repo)
+  const mostUsed = [...starred, ...used].slice(0, Math.max(LIST_SIZE, starred.length))
   const recent = repos
     .filter((repo) => !repo.fork && sameLogin(repo.owner, login))
     .sort((a, b) => b.createdAt - a.createdAt)
@@ -353,6 +356,7 @@ function section(title, rows, emptyText) {
 
 function repoRow(repo, meta) {
   const ownRepo = sameLogin(repo.owner, data.cache.login)
+  const starred = isStarred(repo)
   return h(
     'li',
     { class: 'gh-home-repo' },
@@ -367,7 +371,33 @@ function repoRow(repo, meta) {
       ),
       meta ? h('span', { class: 'gh-home-repo-meta' }, meta) : null,
     ),
+    h(
+      'button',
+      {
+        type: 'button',
+        class: starred ? 'gh-home-star is-starred' : 'gh-home-star',
+        'aria-pressed': String(starred),
+        'aria-label': `${starred ? 'Unstar' : 'Star'} ${repo.name}`,
+        title: starred ? 'Unstar' : 'Star to keep it at the top of Most used',
+        // Keeps the focus in the search box when starring a search result
+        onmousedown: (event) => event.preventDefault(),
+        onclick: () => toggleStar(repo),
+      },
+      starred ? '★' : '☆',
+    ),
   )
+}
+
+function isStarred(repo) {
+  return data.starred.includes(repo.nwo.toLowerCase())
+}
+
+// Stars live in the extension, not on GitHub. The newest one goes to the top.
+async function toggleStar(repo) {
+  const key = repo.nwo.toLowerCase()
+  data.starred = isStarred(repo) ? data.starred.filter((item) => item !== key) : [key, ...data.starred]
+  render()
+  await chrome.storage.local.set({ starred: data.starred })
 }
 
 function setupCard() {

@@ -136,10 +136,14 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
 }
 
 .gh-home-repo {
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid var(--gh-home-border-muted);
 }
 
 .gh-home-repo-link {
+  flex: 1;
+  min-width: 0;
   display: flex;
   align-items: baseline;
   gap: 12px;
@@ -148,12 +152,12 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
   text-decoration: none !important;
 }
 
-.gh-home-repo-link:hover,
-.gh-home-repo-link.is-selected {
+.gh-home-repo:hover,
+.gh-home-repo:has(.is-selected) {
   background: var(--gh-home-bg-muted);
 }
 
-.gh-home-repo-link.is-selected {
+.gh-home-repo:has(.is-selected) {
   box-shadow: inset 2px 0 0 var(--gh-home-accent);
 }
 
@@ -179,6 +183,33 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
   color: var(--gh-home-muted);
   font-size: 12px;
   font-variant-numeric: tabular-nums;
+}
+
+.gh-home-star {
+  flex: none;
+  width: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--gh-home-muted);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.gh-home-repo:hover .gh-home-star,
+.gh-home-star:focus-visible,
+.gh-home-star.is-starred {
+  opacity: 1;
+}
+
+.gh-home-star:hover {
+  color: var(--fgColor-default, #1f2328);
+}
+
+.gh-home-star.is-starred {
+  color: var(--button-star-iconColor, #e3b341);
 }
 
 .gh-home-empty {
