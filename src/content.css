@@ -161,8 +161,15 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
   box-shadow: inset 2px 0 0 var(--gh-home-accent);
 }
 
-.gh-home-repo-name {
+.gh-home-repo-title {
   flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gh-home-repo-name {
   overflow: hidden;
   color: var(--gh-home-accent);
   font-weight: 600;
@@ -176,6 +183,17 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
 
 .gh-home-repo-link:hover .gh-home-repo-name {
   text-decoration: underline;
+}
+
+.gh-home-badge {
+  flex: none;
+  padding: 0 6px;
+  border: 1px solid var(--gh-home-border);
+  border-radius: 2em;
+  color: var(--gh-home-muted);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
 }
 
 .gh-home-repo-meta {

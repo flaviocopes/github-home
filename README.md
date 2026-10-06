@@ -38,7 +38,7 @@ To hear about new versions, click **Watch** on this repo, then **Custom** and **
 - **Most used** lists the 10 repos you work on the most right now, with the time of the last push.
 - **Recently created** lists your 10 newest repos, with how long ago you created them. Forks are left out.
 - **Getting traction** lists the 10 public repos that got the most stars in the last 7 days, with the count.
-- Each repo is one line: its name, and a time or a star count. Hover over it to see the description.
+- Each repo is one line: its name, a **Private** label if it's private, and a time or a star count. Hover over it to see the description.
 - Star a repo with the ☆ that shows up when you hover over it, in any list or in the search results, and it stays at the top of **Most used**. Click the ★ again to unstar it. These stars live in the extension, not on GitHub, so they don't change a repo's star count.
 - The search box has the focus when the page loads. Type part of a name or a description, move with the arrow keys, and press Enter to open the repo. Cmd+Enter (Ctrl+Enter on Windows and Linux) opens it in a new tab, and Escape clears the search.
 - The search covers every repo, not only the ones in the lists: the repos you own, the ones in your organizations and the ones you collaborate on.

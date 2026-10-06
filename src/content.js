@@ -365,9 +365,14 @@ function repoRow(repo, meta) {
       { class: 'gh-home-repo-link', href: `/${repo.nwo}`, title: repo.description || null },
       h(
         'span',
-        { class: 'gh-home-repo-name' },
-        ownRepo ? null : h('span', { class: 'gh-home-repo-owner' }, `${repo.owner}/`),
-        repo.name,
+        { class: 'gh-home-repo-title' },
+        h(
+          'span',
+          { class: 'gh-home-repo-name' },
+          ownRepo ? null : h('span', { class: 'gh-home-repo-owner' }, `${repo.owner}/`),
+          repo.name,
+        ),
+        repo.private ? h('span', { class: 'gh-home-badge' }, 'Private') : null,
       ),
       meta ? h('span', { class: 'gh-home-repo-meta' }, meta) : null,
     ),

@@ -8,6 +8,8 @@ import { DEMO_TOKEN, launch, loadDemoData, serveDemoApi, serveFakeGitHub } from 
 
 const extension = process.argv[2] ? resolve(process.argv[2]) : fileURLToPath(new URL('..', import.meta.url))
 const data = await loadDemoData()
+// The demo data only has public repos, so the test makes one private
+data.repos = data.repos.map((repo) => (repo.name === 'things-cli' ? { ...repo, isPrivate: true } : repo))
 const { context, worker, id, reload } = await launch(extension)
 const storage = (keys) => worker.evaluate((keys) => chrome.storage.local.get(keys), keys)
 const setStorage = (items) => worker.evaluate((items) => chrome.storage.local.set(items), items)
@@ -42,6 +44,9 @@ try {
   const cliTools = page.locator('.gh-home-columns .gh-home-section:first-child .gh-home-repo-link', { hasText: /^cli-tools/ })
   assert.match(await cliTools.textContent(), /^cli-tools\d+h$/, 'a row is the name and the last push, nothing else')
   assert.match(await cliTools.getAttribute('title'), /^One catalog for every CLI tool/, 'the description shows on hover')
+  const thingsCli = page.locator('.gh-home-columns .gh-home-section:first-child .gh-home-repo-link', { hasText: /^things-cli/ })
+  assert.match(await thingsCli.textContent(), /^things-cliPrivate\d+[hd]$/, 'private repos say so')
+  assert.equal(await page.locator('.gh-home-columns .gh-home-section:first-child .gh-home-badge').count(), 1, 'public repos have no label')
   const factorylog = page.locator('.gh-home-columns .gh-home-section:nth-child(3) .gh-home-repo-link', { hasText: /^factorylog/ })
   assert.equal(await factorylog.textContent(), 'factorylog+57 ★', 'only stars from the last 7 days count')
 
