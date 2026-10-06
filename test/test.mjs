@@ -41,14 +41,13 @@ try {
   const cliTools = page.locator('.gh-home-repo', { has: page.locator('.gh-home-repo-name', { hasText: /^cli-tools$/ }) }).first()
   assert.match(await cliTools.textContent(), /34 commits/)
 
-  const all = page.locator('.gh-home-section:has(.gh-home-more)')
-  assert.equal(await all.locator('.gh-home-repo').count(), 20)
-  await page.click('.gh-home-more')
-  assert.equal(await page.locator('.gh-home-sections > .gh-home-section .gh-home-repo').count(), data.repos.length)
+  assert.deepEqual(await page.locator('#github-home .gh-home-section-title').allTextContents(), ['Most used', 'Recently created'], 'only the two lists')
 
-  await page.focus('.gh-home-filter')
   await page.keyboard.type('note')
   assert.deepEqual(await names(page, '.gh-home-results'), ['noterepo'])
+  await page.keyboard.press('Escape')
+  await page.keyboard.type('pixel')
+  assert.deepEqual(await names(page, '.gh-home-results'), ['react-pixel-art'], 'the search covers repos that are in neither list')
   await page.keyboard.press('Escape')
   await page.keyboard.type('cli')
   const results = await names(page, '.gh-home-results')

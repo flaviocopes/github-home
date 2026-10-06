@@ -7,7 +7,6 @@ const FORGET_VISITS_AFTER = 180 * DAY
 const LEAVE_TIMEOUT = 1500
 const MOST_USED_COUNT = 10
 const RECENT_COUNT = 8
-const ALL_PREVIEW_COUNT = 20
 const SEARCH_LIMIT = 30
 
 const RESERVED_OWNERS = new Set([
@@ -189,7 +188,7 @@ function buildUI() {
     ),
   )
 
-  return { root, input, body, status, selected: 0, showAll: false, refreshing: false }
+  return { root, input, body, status, selected: 0, refreshing: false }
 }
 
 function focusFilter() {
@@ -237,49 +236,27 @@ function homeView(now) {
     .filter((repo) => !repo.fork && sameLogin(repo.owner, login))
     .sort((a, b) => b.createdAt - a.createdAt)
     .slice(0, RECENT_COUNT)
-  const all = [...repos].sort((a, b) => b.pushedAt - a.pushedAt)
-  const shown = ui.showAll ? all : all.slice(0, ALL_PREVIEW_COUNT)
 
   return h(
     'div',
-    { class: 'gh-home-sections' },
-    h(
-      'div',
-      { class: 'gh-home-columns' },
-      section(
-        'Most used',
-        'Your commits, visits and pushes lately',
-        mostUsed.map(({ repo, commits, visits }) =>
-          repoRow(repo, [
-            commits ? plural(commits, 'commit') : null,
-            visits ? plural(visits, 'visit') : null,
-            repo.pushedAt ? `pushed ${timeAgo(repo.pushedAt, now)}` : null,
-          ]),
-        ),
-        'Nothing yet. Push some code or open a few repos.',
+    { class: 'gh-home-columns' },
+    section(
+      'Most used',
+      'Your commits, visits and pushes lately',
+      mostUsed.map(({ repo, commits, visits }) =>
+        repoRow(repo, [
+          commits ? plural(commits, 'commit') : null,
+          visits ? plural(visits, 'visit') : null,
+          repo.pushedAt ? `pushed ${timeAgo(repo.pushedAt, now)}` : null,
+        ]),
       ),
-      section(
-        'Recently created',
-        null,
-        recent.map((repo) => repoRow(repo, [`created ${timeAgo(repo.createdAt, now)}`])),
-        'No repositories yet.',
-      ),
+      'Nothing yet. Push some code or open a few repos.',
     ),
     section(
-      'All repositories',
-      String(repos.length),
-      shown.map((repo) => repoRow(repo, [repo.pushedAt ? `updated ${timeAgo(repo.pushedAt, now)}` : null])),
+      'Recently created',
+      null,
+      recent.map((repo) => repoRow(repo, [`created ${timeAgo(repo.createdAt, now)}`])),
       'No repositories yet.',
-      shown.length < all.length
-        ? h('button', {
-            type: 'button',
-            class: 'gh-home-more',
-            onclick: () => {
-              ui.showAll = true
-              render()
-            },
-          }, `Show all ${all.length}`)
-        : null,
     ),
   )
 }
@@ -363,7 +340,7 @@ function onFilterKeydown(event) {
   }
 }
 
-function section(title, note, rows, emptyText, footer = null) {
+function section(title, note, rows, emptyText) {
   return h(
     'section',
     { class: 'gh-home-section' },
@@ -376,7 +353,6 @@ function section(title, note, rows, emptyText, footer = null) {
     rows.length
       ? h('ul', { class: 'gh-home-list' }, rows)
       : h('p', { class: 'gh-home-empty' }, emptyText),
-    footer,
   )
 }
 

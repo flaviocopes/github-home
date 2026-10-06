@@ -97,11 +97,6 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
   text-decoration: underline;
 }
 
-.gh-home-sections {
-  display: grid;
-  gap: 24px;
-}
-
 .gh-home-columns {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -262,22 +257,6 @@ html[data-github-home] [data-github-home-host] > :not(#github-home) {
   margin: 0;
   padding: 16px;
   color: var(--gh-home-muted);
-}
-
-.gh-home-more {
-  display: block;
-  width: 100%;
-  padding: 10px 16px;
-  border: 0;
-  border-top: 1px solid var(--gh-home-border);
-  background: var(--gh-home-bg-muted);
-  color: var(--gh-home-accent);
-  font: inherit;
-  cursor: pointer;
-}
-
-.gh-home-more:hover {
-  text-decoration: underline;
 }
 
 .gh-home-banner {

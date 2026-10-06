@@ -13,8 +13,8 @@ I open github.com to get to one of my repos, and the home page shows me a feed i
 
 GitHub Home isn't on the Chrome Web Store, so you load it into Chrome yourself. It takes a couple of minutes.
 
-1. Get `GitHub-Home-1.0.0.zip` from the [latest release](https://github.com/flaviocopes/github-home/releases/latest) and unzip it.
-2. Move the `GitHub-Home-1.0.0` folder somewhere it can stay, like your Documents folder. Chrome runs the extension from that folder, so if you delete it, GitHub Home is gone.
+1. Get `GitHub-Home-1.1.0.zip` from the [latest release](https://github.com/flaviocopes/github-home/releases/latest) and unzip it.
+2. Move the `GitHub-Home-1.1.0` folder somewhere it can stay, like your Documents folder. Chrome runs the extension from that folder, so if you delete it, GitHub Home is gone.
 3. Open `chrome://extensions` and turn on **Developer mode** in the top right corner.
 4. Click **Load unpacked** and pick that folder.
 5. The settings page needs a GitHub token. Click the puzzle icon in the toolbar, then GitHub Home, and paste the token there.
@@ -37,9 +37,8 @@ To hear about new versions, click **Watch** on this repo, then **Custom** and **
 
 - **Most used** lists the 10 repos you work on the most right now, with your commits, your visits and the last push for each.
 - **Recently created** lists your 8 newest repos. Forks are left out.
-- **All repositories** lists everything, newest push first. It shows 20, and **Show all** shows the rest.
 - The search box has the focus when the page loads. Type part of a name or a description, move with the arrow keys, and press Enter to open the repo. Cmd+Enter (Ctrl+Enter on Windows and Linux) opens it in a new tab, and Escape clears the search.
-- It includes repos you own, repos in your organizations and repos you collaborate on. Private, fork and archived repos get a label.
+- The search covers every repo, not only the ones in the two lists: the repos you own, the ones in your organizations and the ones you collaborate on. Private, fork and archived repos get a label.
 - It follows GitHub's light or dark theme, because it uses GitHub's own colors.
 - Logged out, you see the normal GitHub home page.
 
