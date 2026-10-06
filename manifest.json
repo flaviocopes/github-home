@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "GitHub Home",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Replaces the GitHub home page with your repositories: the ones you work on the most and the ones you created recently.",
   "permissions": ["storage"],
   "host_permissions": ["https://api.github.com/*"],

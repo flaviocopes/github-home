@@ -13,8 +13,8 @@ I open github.com to get to one of my repos, and the home page shows me a feed i
 
 GitHub Home isn't on the Chrome Web Store, so you load it into Chrome yourself. It takes a couple of minutes.
 
-1. Get `GitHub-Home-1.1.0.zip` from the [latest release](https://github.com/flaviocopes/github-home/releases/latest) and unzip it.
-2. Move the `GitHub-Home-1.1.0` folder somewhere it can stay, like your Documents folder. Chrome runs the extension from that folder, so if you delete it, GitHub Home is gone.
+1. Get `GitHub-Home-1.2.0.zip` from the [latest release](https://github.com/flaviocopes/github-home/releases/latest) and unzip it.
+2. Move the `GitHub-Home-1.2.0` folder somewhere it can stay, like your Documents folder. Chrome runs the extension from that folder, so if you delete it, GitHub Home is gone.
 3. Open `chrome://extensions` and turn on **Developer mode** in the top right corner.
 4. Click **Load unpacked** and pick that folder.
 5. The settings page needs a GitHub token. Click the puzzle icon in the toolbar, then GitHub Home, and paste the token there.
