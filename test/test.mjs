@@ -53,8 +53,12 @@ try {
   const layout = () =>
     page.evaluate(() => {
       const tops = [...document.querySelectorAll('.gh-home-columns .gh-home-section')].map((section) => Math.round(section.getBoundingClientRect().top))
-      const name = [...document.querySelectorAll('.gh-home-repo-name')].find((node) => node.textContent === 'importer-for-blackmagic-cam')
-      return { columns: new Set(tops).size === 1 ? 3 : 1, cut: name.scrollWidth > name.clientWidth }
+      const name = [...document.querySelectorAll('.gh-home-repo-name')].find((node) => node.textContent === 'footage-ferry')
+      const original = name.textContent
+      name.textContent = 'a-very-long-repository-name-for-the-layout-check'
+      const cut = name.scrollWidth > name.clientWidth
+      name.textContent = original
+      return { columns: new Set(tops).size === 1 ? 3 : 1, cut }
     })
   await page.setViewportSize({ width: 640, height: 900 })
   assert.deepEqual(await layout(), { columns: 3, cut: true }, 'small windows keep three columns and cut long names')
