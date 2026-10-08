@@ -1,18 +1,28 @@
 {
   "manifest_version": 3,
-  "name": "GitHub Home",
-  "version": "1.2.0",
+  "name": "Repo Foyer",
+  "version": "1.3.0",
   "description": "Replaces the GitHub home page with your repositories: the ones you work on the most and the ones you created recently.",
-  "permissions": ["storage"],
-  "host_permissions": ["https://api.github.com/*"],
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.github.com/*"
+  ],
   "background": {
     "service_worker": "src/background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://github.com/*"],
-      "js": ["src/content.js"],
-      "css": ["src/content.css"],
+      "matches": [
+        "https://github.com/*"
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "css": [
+        "src/content.css"
+      ],
       "run_at": "document_start"
     }
   ],
@@ -21,7 +31,7 @@
     "open_in_tab": true
   },
   "action": {
-    "default_title": "GitHub Home settings",
+    "default_title": "Repo Foyer settings",
     "default_icon": {
       "16": "icons/icon16.png",
       "32": "icons/icon32.png"

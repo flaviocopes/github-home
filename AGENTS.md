@@ -1,4 +1,4 @@
-# GitHub Home
+# Repo Foyer
 
 A Chrome extension that replaces the github.com home page with three short lists of your repositories (most used, recently created, getting traction) and a search box. It's plain JavaScript with no build step.
 
@@ -14,7 +14,7 @@ A Chrome extension that replaces the github.com home page with three short lists
 - `test/test.mjs`: the test.
 - `scripts/screenshots.mjs`: the README screenshots, from the demo data. `--live` uses your own repos and writes to `preview/`.
 - `scripts/banner.html` and `scripts/render-banner.mjs`: the README banner, rendered to `docs/banner.png`.
-- `scripts/build-release.sh`: zips the extension into `dist/GitHub-Home-<version>.zip`.
+- `scripts/build-release.sh`: zips the extension into `dist/Repo-Foyer-<version>.zip`.
 
 ## Build and run
 
@@ -27,10 +27,10 @@ npm run screenshots                  # docs/screenshot-light.png and docs/screen
 npm run preview                      # the same with your own repos, in preview/ (needs the gh CLI)
 npm run banner                       # docs/banner.png at 2x, from the dark screenshot
 npm run icons                        # icons/*.png from icons/icon.svg
-scripts/build-release.sh             # dist/GitHub-Home-<version>.zip and its SHA-256
+scripts/build-release.sh             # dist/Repo-Foyer-<version>.zip and its SHA-256
 ```
 
-To try a change in your own Chrome, open `chrome://extensions`, turn on Developer mode, click **Load unpacked** and pick this folder. After editing, click the reload arrow on the GitHub Home card and reload the GitHub tab.
+To try a change in your own Chrome, open `chrome://extensions`, turn on Developer mode, click **Load unpacked** and pick this folder. After editing, click the reload arrow on the Repo Foyer card and reload the GitHub tab.
 
 ## Rules
 
@@ -41,4 +41,4 @@ To try a change in your own Chrome, open `chrome://extensions`, turn on Develope
 - Keep the old page hidden until GitHub swaps in the new one when leaving the home page (the `LEAVE_TIMEOUT` logic in `sync()`), or the feed flashes for a moment.
 - Don't add permissions the extension doesn't need.
 - The version in `manifest.json` and `package.json` must equal the release tag without the `v`. Releases attach the zip from `scripts/build-release.sh`, built from the tagged commit.
-- The showreel video lives on flaviocopes.com, not in this repo. A local copy at `/github-home-showreel.mp4` is ignored by git.
+- The showreel video lives on flaviocopes.com, not in this repo. A local copy at `/repo-foyer-showreel.mp4` is ignored by git.

@@ -23,8 +23,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/vm-monitor",
-      "name": "vm-monitor",
+      "nameWithOwner": "flaviocopes/vm-peek",
+      "name": "vm-peek",
       "owner": {
         "login": "flaviocopes"
       },
@@ -57,12 +57,12 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/releases",
-      "name": "releases",
+      "nameWithOwner": "flaviocopes/releases-manager",
+      "name": "releases-manager",
       "owner": {
         "login": "flaviocopes"
       },
-      "description": "A Mac app that tracks the versions and GitHub releases of the apps you make, and helps you ship the next one",
+      "description": "A Mac app that tracks the versions and GitHub releases-manager of the apps you make, and helps you ship the next one",
       "isPrivate": false,
       "isFork": false,
       "isArchived": false,
@@ -91,8 +91,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/blips",
-      "name": "blips",
+      "nameWithOwner": "flaviocopes/chip-pops",
+      "name": "chip-pops",
       "owner": {
         "login": "flaviocopes"
       },
@@ -108,8 +108,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/cli-tools",
-      "name": "cli-tools",
+      "nameWithOwner": "flaviocopes/cli-tools-cabinet",
+      "name": "cli-tools-cabinet",
       "owner": {
         "login": "flaviocopes"
       },
@@ -125,12 +125,12 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/snake",
-      "name": "snake",
+      "nameWithOwner": "flaviocopes/couch-snake",
+      "name": "couch-snake",
       "owner": {
         "login": "flaviocopes"
       },
-      "description": "The classic snake game from old mobile phones, rebuilt for the Apple TV",
+      "description": "The classic couch-snake game from old mobile phones, rebuilt for the Apple TV",
       "isPrivate": false,
       "isFork": false,
       "isArchived": false,
@@ -142,8 +142,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/factorylog",
-      "name": "factorylog",
+      "nameWithOwner": "flaviocopes/work-tracebook",
+      "name": "work-tracebook",
       "owner": {
         "login": "flaviocopes"
       },
@@ -159,8 +159,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/tabmerger",
-      "name": "tabmerger",
+      "nameWithOwner": "flaviocopes/tab-reunion",
+      "name": "tab-reunion",
       "owner": {
         "login": "flaviocopes"
       },
@@ -176,8 +176,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/notion-presenter-view",
-      "name": "notion-presenter-view",
+      "nameWithOwner": "flaviocopes/slide-lookout",
+      "name": "slide-lookout",
       "owner": {
         "login": "flaviocopes"
       },
@@ -193,8 +193,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/soundscape",
-      "name": "soundscape",
+      "nameWithOwner": "flaviocopes/tranquillity-maker",
+      "name": "tranquillity-maker",
       "owner": {
         "login": "flaviocopes"
       },
@@ -210,8 +210,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/skillscout",
-      "name": "skillscout",
+      "nameWithOwner": "flaviocopes/skill-cabinet",
+      "name": "skill-cabinet",
       "owner": {
         "login": "flaviocopes"
       },
@@ -227,8 +227,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/postdeck",
-      "name": "postdeck",
+      "nameWithOwner": "flaviocopes/post-slide-deck",
+      "name": "post-slide-deck",
       "owner": {
         "login": "flaviocopes"
       },
@@ -244,8 +244,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/noterepo",
-      "name": "noterepo",
+      "nameWithOwner": "flaviocopes/note-repo",
+      "name": "note-repo",
       "owner": {
         "login": "flaviocopes"
       },
@@ -261,8 +261,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/calculum",
-      "name": "calculum",
+      "nameWithOwner": "flaviocopes/number-pantry",
+      "name": "number-pantry",
       "owner": {
         "login": "flaviocopes"
       },
@@ -278,8 +278,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/blueprint",
-      "name": "blueprint",
+      "nameWithOwner": "flaviocopes/architecture-dissector",
+      "name": "architecture-dissector",
       "owner": {
         "login": "flaviocopes"
       },
@@ -397,8 +397,8 @@
       }
     },
     {
-      "nameWithOwner": "flaviocopes/livestream-recorder",
-      "name": "livestream-recorder",
+      "nameWithOwner": "flaviocopes/broadcast-keep",
+      "name": "broadcast-keep",
       "owner": {
         "login": "flaviocopes"
       },
@@ -993,35 +993,35 @@
   ],
   "commits": {
     "importer-for-blackmagic-cam": 4,
-    "vm-monitor": 7,
+    "vm-peek": 7,
     "testvm": 1,
-    "releases": 26,
+    "releases-manager": 26,
     "vimeo-cli": 2,
-    "blips": 5,
-    "cli-tools": 34,
-    "snake": 6,
-    "factorylog": 9,
-    "tabmerger": 6,
-    "notion-presenter-view": 6,
-    "soundscape": 21,
-    "skillscout": 17,
-    "postdeck": 10,
-    "noterepo": 32,
-    "calculum": 5,
-    "blueprint": 17,
+    "chip-pops": 5,
+    "cli-tools-cabinet": 34,
+    "couch-snake": 6,
+    "work-tracebook": 9,
+    "tab-reunion": 6,
+    "slide-lookout": 6,
+    "tranquillity-maker": 21,
+    "skill-cabinet": 17,
+    "post-slide-deck": 10,
+    "note-repo": 32,
+    "number-pantry": 5,
+    "architecture-dissector": 17,
     "things-cli": 11,
     "waiting-lists": 3,
     "tte-js": 3,
     "port-pilot": 3,
     "plausible-automation": 3,
     "local-hoster": 3,
-    "livestream-recorder": 3,
+    "broadcast-keep": 3,
     "events-logger": 3,
     "cloudflare-domains": 3,
     "fstack": 15
   },
   "visitsHoursAgo": {
-    "blueprint": [
+    "architecture-dissector": [
       1,
       3,
       20,
@@ -1029,41 +1029,41 @@
       50,
       75
     ],
-    "releases": [
+    "releases-manager": [
       2,
       5,
       28,
       54,
       100
     ],
-    "cli-tools": [
+    "cli-tools-cabinet": [
       4,
       30,
       70,
       120
     ],
-    "noterepo": [
+    "note-repo": [
       6,
       48,
       96
     ],
-    "soundscape": [
+    "tranquillity-maker": [
       10,
       80
     ]
   },
   "starsThisWeek": {
-    "factorylog": 57,
-    "skillscout": 55,
-    "noterepo": 45,
-    "soundscape": 7,
-    "releases": 6,
-    "calculum": 5,
-    "cli-tools": 5,
-    "blueprint": 4,
-    "vm-monitor": 3,
-    "snake": 1,
-    "postdeck": 1,
+    "work-tracebook": 57,
+    "skill-cabinet": 55,
+    "note-repo": 45,
+    "tranquillity-maker": 7,
+    "releases-manager": 6,
+    "number-pantry": 5,
+    "cli-tools-cabinet": 5,
+    "architecture-dissector": 4,
+    "vm-peek": 3,
+    "couch-snake": 1,
+    "post-slide-deck": 1,
     "fstack": 1
   }
 }
