@@ -6,8 +6,8 @@
   },
   "repos": [
     {
-      "nameWithOwner": "flaviocopes/importer-for-blackmagic-cam",
-      "name": "importer-for-blackmagic-cam",
+      "nameWithOwner": "flaviocopes/footage-ferry",
+      "name": "footage-ferry",
       "owner": {
         "login": "flaviocopes"
       },
@@ -992,7 +992,7 @@
     }
   ],
   "commits": {
-    "importer-for-blackmagic-cam": 4,
+    "footage-ferry": 4,
     "vm-peek": 7,
     "testvm": 1,
     "releases-manager": 26,
